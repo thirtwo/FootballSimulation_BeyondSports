@@ -11,9 +11,8 @@ namespace Thirtwo.Installers
         {
             Container.BindInstance(gameConfig.PlayerViewPrefab).WithId("PlayerPrefab");
             Container.BindFactory<PlayerView, PlayerViewFactory>().AsTransient();
-
-            Container.Bind<PlayerModel>().AsTransient();
-            Container.Bind<PlayerViewModel>().AsTransient();
+            Container.BindFactory<PlayerModel, PlayerModelFactory>().AsTransient();
+            Container.BindFactory<PlayerViewModel, PlayerViewModelFactory>().AsTransient();
         }
     }
 }
