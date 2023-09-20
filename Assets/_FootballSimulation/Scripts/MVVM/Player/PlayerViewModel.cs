@@ -5,6 +5,7 @@ namespace Thirtwo.MVVM.Player
         public PlayerViewModel(PlayerModel model, PlayerView view)
             : base(model, view)
         {
+
         }
     }
 }
