@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c965532603dd0c439ba4d359a36eaa6, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  SimulationDataAsset: {fileID: 4900000, guid: 342576dc6df3b7641be50e00d7030e78, type: 3}
+  <SimulationDataAsset>k__BackingField: {fileID: 4900000, guid: 342576dc6df3b7641be50e00d7030e78, type: 3}
+  <PlayerViewPrefab>k__BackingField: {fileID: 0}
