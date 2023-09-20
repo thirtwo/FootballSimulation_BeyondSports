@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using Thirtwo.MVVM.Player;
-using UnityEngine;
 using Zenject;
 namespace Thirtwo.Factories
 {
