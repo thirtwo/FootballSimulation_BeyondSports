@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using Thirtwo.Data.Simulation;
 using UnityEngine;
@@ -20,9 +21,18 @@ namespace Thirtwo.Serializer.Simulation
             var lines = deserializedAsset.text.Split('\n');
             for (int i = 0; i < lines.Length; i++)
             {
-                simulationDatas.Add(JsonUtility.FromJson<SimulationData>(lines[i]));
-                //TO:DO add a logger class and control all the logs in advance
-                Debug.Log(JsonUtility.ToJson(simulationDatas[i]));
+                var data = JsonConvert.DeserializeObject<SimulationData>(lines[i]);
+                if (data != null)
+                {
+                    simulationDatas.Add(data);
+                    //TO:DO add a logger class and control all the logs in advance
+                    Debug.Log(JsonConvert.SerializeObject(simulationDatas[i]));
+                }
+                else
+                {
+                    continue;
+                }
+
             }
         }
         public List<SimulationData> GetSimulationDatas()

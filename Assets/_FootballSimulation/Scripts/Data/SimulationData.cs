@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 
 namespace Thirtwo.Data.Simulation
 {
@@ -10,8 +10,8 @@ namespace Thirtwo.Data.Simulation
     public class SimulationData
     {
         public long FrameCount { get; set; }
-        public DateTimeOffset TimestampUTC { get; set; }
-        public PersonData[] Persons { get; set; }
+        public float TimestampUTC { get; set; }
+        public List<PersonData> Persons { get; set; }
         public BallData Ball { get; set; }
         public GameClockContextData GameClockContext { get; set; }
         public MatchScoreContextData MatchScoreContext { get; set; }
