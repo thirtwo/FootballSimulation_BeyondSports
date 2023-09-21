@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: GameConfig
   m_EditorClassIdentifier: 
   <SimulationDataAsset>k__BackingField: {fileID: 4900000, guid: 342576dc6df3b7641be50e00d7030e78, type: 3}
-  <PlayerViewPrefab>k__BackingField: {fileID: 0}
+  <SimulationConfig>k__BackingField: {fileID: 11400000, guid: 8665d09b91f29314994c3e7bef74c126, type: 2}
+  <PlayerViewPrefab>k__BackingField: {fileID: 7382196467695140234, guid: cf37fe086af1e7e478047700e20e04f5, type: 3}
