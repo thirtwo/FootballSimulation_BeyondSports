@@ -20,6 +20,7 @@ namespace Thirtwo.MVVM.Player
         {
             Model = playerModelFactory.Create();
             View = playerViewFactory.Create();
+            //This implementation is wrong. I should bind from DI but I couldn't yet
             Initialize();
         }
         #endregion

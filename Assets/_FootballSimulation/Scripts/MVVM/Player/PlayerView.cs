@@ -27,8 +27,6 @@ namespace Thirtwo.MVVM.Player
         #region Class Methods
         public void SetPlayerView(PersonData personData)
         {
-            var data = JsonConvert.SerializeObject(personData);
-            UnityEngine.Debug.Log(data);
             if (personData == null) return;
             jerseyText.text = personData.JerseyNumber.ToString();
             transform.position = new Vector3(personData.Position[0], personData.Position[1], personData.Position[2]);
