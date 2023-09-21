@@ -16,6 +16,7 @@ namespace Thirtwo.MVVM.Ball
         {
             Model = ballModel;
             View = ballView;
+            Initialize();
         }
         #endregion
         #region Interface Methods

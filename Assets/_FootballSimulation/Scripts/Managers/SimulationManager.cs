@@ -8,6 +8,7 @@ using Zenject;
 using Cysharp.Threading.Tasks;
 using Thirtwo.Data.Simulation.Person;
 using UnityEngine;
+using Thirtwo.MVVM.Ball;
 
 namespace Thirtwo.Managers
 {
@@ -16,15 +17,17 @@ namespace Thirtwo.Managers
         #region Variables
         private readonly PlayerViewModelFactory playerViewModelFactory;
         private readonly SimulationSerializer simulationSerializer;
-
+        private readonly BallViewModel ballViewModel;
         private List<SimulationData> simulationDatas;
         private Dictionary<int, PlayerViewModel> playerViewModels;
         #endregion
         #region Constructor
-        public SimulationManager(PlayerViewModelFactory playerViewModelFactory, SimulationSerializer simulationSerializer)
+        public SimulationManager(PlayerViewModelFactory playerViewModelFactory, SimulationSerializer simulationSerializer,
+            BallViewModel ballViewModel)
         {
             this.playerViewModelFactory = playerViewModelFactory;
             this.simulationSerializer = simulationSerializer;
+            this.ballViewModel = ballViewModel;
         }
         #endregion
         #region Interface Methods
@@ -52,7 +55,7 @@ namespace Thirtwo.Managers
         }
         private void SetSimulationFrame(SimulationData simulationData)
         {
-            //Set Ball
+            ballViewModel.SetBallData(simulationData.Ball);
             //Set Match score
             for (int i = 0; i < simulationData.Persons.Count; i++)
             {
