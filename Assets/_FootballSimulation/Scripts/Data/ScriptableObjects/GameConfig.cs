@@ -9,5 +9,7 @@ namespace Thirtwo.Data.ScriptableObjects
         [field: SerializeField] public SimulationConfig SimulationConfig { get; private set; }
         [field: Header("Player Settings")]
         [field: SerializeField] public GameObject PlayerViewPrefab { get; private set; }
+        [field: Header("Ball Settings")]
+        [field: SerializeField] public GameObject BallViewPrefab { get; private set; }
     }
 }
