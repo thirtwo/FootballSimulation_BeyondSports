@@ -27,7 +27,7 @@ namespace Thirtwo.MVVM.Player
         public void SetPlayerView(PersonData personData)
         {
             jerseyText.text = personData.JerseyNumber.ToString();
-            transform.position = personData.Position;
+            transform.position = new Vector3(personData.Position[0], personData.Position[1], personData.Position[2]);
             SetTeamColor(personData.TeamSide);
         }
 
@@ -40,7 +40,7 @@ namespace Thirtwo.MVVM.Player
         }
         #endregion
         #region Editor Methods
-        [ContextMenu("Set References")]
+        [ContextMenu("Set References")] //Odin Inspector Button would be great but don't have it
         private void SetRefs()
         {
             meshRenderer = GetComponent<MeshRenderer>();

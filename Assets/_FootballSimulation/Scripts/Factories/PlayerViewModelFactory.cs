@@ -22,6 +22,7 @@ namespace Thirtwo.Factories
             contain.BindInstance(playerModel);
             contain.BindInstance(playerView);
             var playerViewModel = contain.Instantiate<PlayerViewModel>();
+            contain.BindInterfacesTo<PlayerViewModel>();
             return playerViewModel;
         }
     }

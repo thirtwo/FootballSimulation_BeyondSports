@@ -22,7 +22,7 @@ namespace Thirtwo.MVVM.Player
         #region Interface Methods
         public void Initialize()
         {
-            Model.PersonData
+            Model.PersonData    
                 .Subscribe(View.SetPlayerView)
                 .AddTo(compositeDisposable);
         }
@@ -32,7 +32,7 @@ namespace Thirtwo.MVVM.Player
         }
         #endregion
         #region Class Methods
-        private void SetPersonData(PersonData personData)
+        public void SetPersonData(PersonData personData)
         {
             id = personData.Id;
             Model.SetPersonData(personData);

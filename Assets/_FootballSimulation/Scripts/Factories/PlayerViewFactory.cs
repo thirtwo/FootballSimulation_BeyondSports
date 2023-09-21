@@ -16,8 +16,8 @@ namespace Thirtwo.Factories
         //TO:DO Make that with object pooling
         public override PlayerView Create()
         {
-            PlayerView playerView = container.InstantiatePrefabForComponent<PlayerView>(playerPrefab);
-
+            var prefab = container.InstantiatePrefab(playerPrefab);
+            PlayerView playerView = prefab.GetComponent<PlayerView>();
             return playerView;
         }
     }
