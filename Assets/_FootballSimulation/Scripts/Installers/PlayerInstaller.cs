@@ -1,3 +1,4 @@
+using Thirtwo.Data.ScriptableObjects;
 using Thirtwo.Factories;
 using Thirtwo.MVVM.Player;
 using UnityEngine;
@@ -9,7 +10,8 @@ namespace Thirtwo.Installers
         [SerializeField] private GameConfig gameConfig;
         public override void InstallBindings()
         {
-            Container.BindInstance(gameConfig.PlayerViewPrefab).WithId("PlayerPrefab");
+            Container.BindInstance(gameConfig.SimulationConfig).AsSingle();
+            Container.BindInstance(gameConfig.PlayerViewPrefab);
             Container.BindFactory<PlayerView, PlayerViewFactory>().AsTransient();
             Container.BindFactory<PlayerModel, PlayerModelFactory>().AsTransient();
             Container.BindFactory<PlayerViewModel, PlayerViewModelFactory>().AsTransient();
