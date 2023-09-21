@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using Thirtwo.Data.Simulation.Person;
 using Thirtwo.Factories;
@@ -19,20 +20,15 @@ namespace Thirtwo.MVVM.Player
         {
             Model = playerModelFactory.Create();
             View = playerViewFactory.Create();
+            Initialize();
         }
         #endregion
         #region Interface Methods
         public void Initialize()
         {
-            UnityEngine.Debug.Log("Init");
             Model.PersonData    
                 .Subscribe(View.SetPlayerView)
                 .AddTo(compositeDisposable);
-            Model.PersonData.Subscribe(Debug);
-        }
-        private void Debug(PersonData personData)
-        {
-            UnityEngine.Debug.Log("Frame: " + personData.TimeStamp);
         }
         public void Dispose()
         {

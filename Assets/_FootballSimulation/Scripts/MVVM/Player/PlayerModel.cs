@@ -9,7 +9,9 @@ namespace Thirtwo.MVVM.Player
 
         public void SetPersonData(PersonData personData)
         {
-            this.personData = new ReactiveProperty<PersonData>(personData);
+            var data = new ReactiveProperty<PersonData>(personData);
+
+            this.personData.Value = data.Value;
         }
     }
 }
