@@ -4,13 +4,12 @@ namespace Thirtwo.MVVM
     where TModel : Model
     where TView : View
     {
-        protected TModel Model { get; private set; }
-        protected TView View { get; private set; }
+        protected TModel Model { get; set; }
+        protected TView View { get; set; }
 
-        public ViewModel(TModel model, TView view)
+        public ViewModel()
         {
-            Model = model;
-            View = view;
+
         }
     }
 }

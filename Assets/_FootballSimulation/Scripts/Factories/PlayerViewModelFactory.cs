@@ -4,26 +4,21 @@ namespace Thirtwo.Factories
 {
     public class PlayerViewModelFactory : PlaceholderFactory<PlayerViewModel>
     {
-        private readonly PlayerModelFactory playerModelFactory;
-        private readonly PlayerViewFactory playerViewFactory;
 
-        public PlayerViewModelFactory(DiContainer container, PlayerViewFactory playerViewFactory,
-            PlayerModelFactory playerModelFactory)
+    }
+    public class CustomPlayerViewModelFactory : IFactory<PlayerViewModel>
+    {
+        private readonly DiContainer container;
+
+        public CustomPlayerViewModelFactory(DiContainer container)
         {
-            this.playerModelFactory = playerModelFactory;
-            this.playerViewFactory = playerViewFactory;
+            this.container = container;
         }
-
-        public override PlayerViewModel Create()
+        public PlayerViewModel Create()
         {
-            var contain = new DiContainer();
-            var playerModel = playerModelFactory.Create();
-            var playerView = playerViewFactory.Create();
-            contain.BindInstance(playerModel);
-            contain.BindInstance(playerView);
-            var playerViewModel = contain.Instantiate<PlayerViewModel>();
-            contain.BindInterfacesTo<PlayerViewModel>();
-            return playerViewModel;
+            var playerVM = container.Instantiate<PlayerViewModel>();
+            container.BindInterfacesTo<PlayerViewModel>().FromInstance(playerVM);
+            return playerVM;
         }
     }
 }

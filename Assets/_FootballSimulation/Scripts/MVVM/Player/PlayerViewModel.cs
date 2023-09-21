@@ -1,5 +1,6 @@
 using System;
 using Thirtwo.Data.Simulation.Person;
+using Thirtwo.Factories;
 using UniRx;
 using Zenject;
 namespace Thirtwo.MVVM.Player
@@ -13,18 +14,25 @@ namespace Thirtwo.MVVM.Player
         readonly CompositeDisposable compositeDisposable = new CompositeDisposable();
         #endregion
         #region Constructor
-        public PlayerViewModel(PlayerModel model, PlayerView view)
-            : base(model, view)
+        public PlayerViewModel(PlayerViewFactory playerViewFactory, PlayerModelFactory playerModelFactory)
+            : base()
         {
-
+            Model = playerModelFactory.Create();
+            View = playerViewFactory.Create();
         }
         #endregion
         #region Interface Methods
         public void Initialize()
         {
+            UnityEngine.Debug.Log("Init");
             Model.PersonData    
                 .Subscribe(View.SetPlayerView)
                 .AddTo(compositeDisposable);
+            Model.PersonData.Subscribe(Debug);
+        }
+        private void Debug(PersonData personData)
+        {
+            UnityEngine.Debug.Log("Frame: " + personData.TimeStamp);
         }
         public void Dispose()
         {

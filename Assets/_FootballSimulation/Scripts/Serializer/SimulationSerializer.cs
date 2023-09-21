@@ -26,7 +26,7 @@ namespace Thirtwo.Serializer.Simulation
                 {
                     simulationDatas.Add(data);
                     //TO:DO add a logger class and control all the logs in advance
-                    Debug.Log(JsonConvert.SerializeObject(simulationDatas[i]));
+                    //Debug.Log(JsonConvert.SerializeObject(simulationDatas[i]));
                 }
                 else
                 {

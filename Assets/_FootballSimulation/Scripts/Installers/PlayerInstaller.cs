@@ -23,9 +23,9 @@ namespace Thirtwo.Installers
         private void SetPlayerBindings()
         {
             Container.BindInstance(gameConfig.PlayerViewPrefab);
-            Container.BindFactory<PlayerView, PlayerViewFactory>();
-            Container.BindFactory<PlayerModel, PlayerModelFactory>().AsTransient();
-            Container.BindFactory<PlayerViewModel, PlayerViewModelFactory>().AsTransient();
+            Container.BindFactory<PlayerView, PlayerViewFactory>().FromComponentInNewPrefab(gameConfig.PlayerViewPrefab);
+            Container.BindFactory<PlayerModel, PlayerModelFactory>();
+            Container.BindFactory<PlayerViewModel, PlayerViewModelFactory>().FromFactory<CustomPlayerViewModelFactory>();
         }
     }
 }

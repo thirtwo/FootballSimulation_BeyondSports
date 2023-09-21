@@ -5,20 +5,20 @@ namespace Thirtwo.Factories
 {
     public class PlayerViewFactory : PlaceholderFactory<PlayerView>
     {
+    }
+    public class CustomPlayerViewFactory : IFactory<PlayerView>
+    {
         private readonly DiContainer container;
         private readonly GameObject playerPrefab;
 
-        public PlayerViewFactory(DiContainer container, GameObject playerPrefab)
+        public CustomPlayerViewFactory(DiContainer container, GameObject playerPrefab)
         {
             this.container = container;
             this.playerPrefab = playerPrefab;
         }
-        //TO:DO Make that with object pooling
-        public override PlayerView Create()
+        public PlayerView Create()
         {
-            var prefab = container.InstantiatePrefab(playerPrefab);
-            PlayerView playerView = prefab.GetComponent<PlayerView>();
-            return playerView;
+            return container.InjectGameObjectForComponent<PlayerView>(playerPrefab);
         }
     }
 }
